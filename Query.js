@@ -1,0 +1,32 @@
+const mongoose = require("mongoose");
+
+const querySchema = new mongoose.Schema(
+  {
+    text: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    degree: {
+  type: String,
+  required: true,
+  trim: true,
+},
+
+year: {
+  type: String,
+  required: true,
+  trim: true,
+},
+    owner: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
+
+module.exports = mongoose.model("Query", querySchema);
